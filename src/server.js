@@ -33,9 +33,8 @@ io.on('connection', socket => {
 		socket.to(roomName).emit('welcome');
 	});
 
-	socket.on('message', msg => {
-		console.log('앖ㅇ,ㅁ??', msg);
-		io.emit('chat message', msg);
+	socket.on('message', (msg, roomName) => {
+		socket.to(roomName).emit('message', msg);
 	});
 
 	socket.on('offer', (offer, roomName) => {
