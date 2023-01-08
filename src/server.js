@@ -10,6 +10,7 @@ dotenv.config({
 
 const app = express();
 const server = createServer(app);
+
 const io = new Server(server, {
 	cors: {
 		origin: [process.env.NODE_ENV_LOCAL_IP, process.env.NODE_ENV_WIFI_IP],
@@ -28,7 +29,6 @@ io.on('connection', socket => {
 	console.log('welcome socket connection');
 
 	socket.on('join_room', roomName => {
-		console.log('romm', roomName);
 		socket.join(roomName);
 		socket.to(roomName).emit('welcome');
 	});
