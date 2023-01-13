@@ -4,6 +4,7 @@
 	"scripts": {
 		"start": "nodemon"
 	},
+	"type": "module",
 	"author": "",
 	"license": "MIT",
 	"devDependencies": {
